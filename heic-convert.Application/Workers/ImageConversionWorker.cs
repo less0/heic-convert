@@ -38,14 +38,15 @@ namespace heic_convert.Application.Workers
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                ConvertQueuedFiles();
+                ConvertQueuedFiles(stoppingToken);
                 await Task.Delay(1000, stoppingToken);
             }
         }
 
-        private void ConvertQueuedFiles()
+        private void ConvertQueuedFiles(CancellationToken stoppingToken)
         {
-            while (_processingQueue.TryDequeue(out var filePath))
+            while (_processingQueue.TryDequeue(out var filePath)
+                && !stoppingToken.IsCancellationRequested)
             {
                 var subfolder = GetTargetSubfolderFor(filePath);
                 string outFile = Path.Combine(_outDirectory, subfolder, $"{Path.GetFileNameWithoutExtension(filePath)}.jpg");
