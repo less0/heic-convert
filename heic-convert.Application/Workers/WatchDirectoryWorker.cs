@@ -2,20 +2,20 @@ namespace heic_convert.Application.Workers;
 
 /// <summary>
 /// Worker that watches a specific directory for PDF files to come in and enqueues them with a
-/// <see cref="IPdfMerger"/>. Watching the directory is intentionally <em>not</em> implemented 
+/// <see cref="IImageConversionWorker"/>. Watching the directory is intentionally <em>not</em> implemented 
 /// with a <see cref="FileSystemWatcher"/> to assure an increased compatability across systems 
 /// and file systems.
 /// </summary>
 public class WatchDirectoryWorker : BackgroundService
 {
     private readonly ILogger<WatchDirectoryWorker> _logger;
-    private readonly IPdfMerger _pdfMerger;
+    private readonly IImageConversionWorker _pdfMerger;
     private readonly string _watchDirectory;
     private readonly HashSet<string> _filesNotToProcess = new();
 
     public WatchDirectoryWorker(ILogger<WatchDirectoryWorker> logger,
         IConfigDirectoryService configDirectoryService,
-        IPdfMerger pdfMerger)
+        IImageConversionWorker pdfMerger)
     {
         _logger = logger;
         _pdfMerger = pdfMerger;
@@ -45,7 +45,7 @@ public class WatchDirectoryWorker : BackgroundService
                 // Add file to list of files that should not be processed to prevent the file
                 // to be processed in the next iteration
                 _filesNotToProcess.Add(fileToProcess);
-                _pdfMerger.EnqueueForMerging(fileToProcess);
+                _pdfMerger.EnqueueForConversion(fileToProcess);
             }
 
             await Task.Delay(1000, stoppingToken);
@@ -60,7 +60,7 @@ public class WatchDirectoryWorker : BackgroundService
     /// </returns>
     private string[] GetFilesToProcess()
     {
-        var files = Directory.GetFiles(_watchDirectory, "*.pdf", new EnumerationOptions() { RecurseSubdirectories = false });
+        var files = Directory.GetFiles(_watchDirectory, "*.heic", new EnumerationOptions() { RecurseSubdirectories = false });
         return files.Where(f => !IsLocked(f))
             .OrderBy(File.GetCreationTime)
             .ToArray();
@@ -84,6 +84,10 @@ public class WatchDirectoryWorker : BackgroundService
             return false;
         }
         catch (UnauthorizedAccessException)
+        {
+            return true;
+        }
+        catch(IOException)
         {
             return true;
         }

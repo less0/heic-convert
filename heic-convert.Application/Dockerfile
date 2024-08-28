@@ -22,6 +22,7 @@ FROM base AS final
 RUN id
 USER root
 RUN apk add imagemagick
+RUN apk add imagemagick-heic
 
 USER app
 WORKDIR /app

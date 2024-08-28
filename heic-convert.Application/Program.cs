@@ -6,9 +6,9 @@ builder.Services.AddSingleton<IConfigDirectoryService, ConfigDirectoryService>()
 builder.Services.AddSingleton<IConfigValidator, ConfigValidator>();
 
 // We are using this approach for WatchDirectoryWorker to be able to reference IPdfMerger
-builder.Services.AddSingleton<PdfMerger>();
-builder.Services.AddSingleton<IPdfMerger>(x => x.GetRequiredService<PdfMerger>());
-builder.Services.AddHostedService(x => x.GetRequiredService<PdfMerger>());
+builder.Services.AddSingleton<ImageConversionWorker>();
+builder.Services.AddSingleton<IImageConversionWorker>(x => x.GetRequiredService<ImageConversionWorker>());
+builder.Services.AddHostedService(x => x.GetRequiredService<ImageConversionWorker>());
 builder.Services.AddHostedService<WatchDirectoryWorker>();
 
 var host = builder.Build();
