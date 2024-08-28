@@ -4,13 +4,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-duplexify.Application-b137e97a-eb46-40b7-a309-10f1b699d19c</UserSecretsId>
+    <UserSecretsId>dotnet-heic-convert.Application-b137e97a-eb46-40b7-a309-10f1b699d19c</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <Title>duplexify</Title>
+    <Title>heic-convert</Title>
     <Authors>Paul Kertscher</Authors>
-    <Product>duplexify</Product>
-    <RepositoryUrl>https://github.com/less0/duplexify</RepositoryUrl>
+    <Product>heic-convert</Product>
+    <RepositoryUrl>https://github.com/less0/heic-convert</RepositoryUrl>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <RootNamespace>heic_convert.Application</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

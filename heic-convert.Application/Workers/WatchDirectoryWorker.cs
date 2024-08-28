@@ -1,4 +1,4 @@
-namespace duplexify.Application.Workers;
+namespace heic_convert.Application.Workers;
 
 /// <summary>
 /// Worker that watches a specific directory for PDF files to come in and enqueues them with a

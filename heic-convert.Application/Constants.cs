@@ -1,4 +1,4 @@
-﻿namespace duplexify.Application
+﻿namespace heic_convert.Application
 {
     internal static class Constants
     {

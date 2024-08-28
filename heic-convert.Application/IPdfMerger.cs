@@ -1,4 +1,4 @@
-﻿namespace duplexify.Application
+﻿namespace heic_convert.Application
 {
     /// <summary>
     /// Contract for a class that merges PDF files. The files are processed one by one and as soon

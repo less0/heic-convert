@@ -1,5 +1,5 @@
-using duplexify.Application;
-using duplexify.Application.Workers;
+using heic_convert.Application;
+using heic_convert.Application.Workers;
 
 var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddSingleton<IConfigDirectoryService, ConfigDirectoryService>();

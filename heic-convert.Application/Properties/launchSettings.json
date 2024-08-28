@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "duplexify.Application": {
+    "heic-convert.Application": {
       "commandName": "Project",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "duplexify.Application", "duplexify.Application\duplexify.Application.csproj", "{D9401684-3D0A-4807-B531-6B81175BC6C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "heic-convert.Application", "heic-convert.Application\heic-convert.Application.csproj", "{D9401684-3D0A-4807-B531-6B81175BC6C6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{509B9D9F-6294-41A5-B351-DB124CB7C9D6}"
 	ProjectSection(SolutionItems) = preProject

@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace duplexify.Application.Workers
+namespace heic_convert.Application.Workers
 {
     internal class PdfMerger : BackgroundService, IPdfMerger
     {
