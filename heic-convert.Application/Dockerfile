@@ -23,6 +23,7 @@ RUN id
 USER root
 RUN apk add imagemagick
 RUN apk add imagemagick-heic
+RUN apk add imagemagick-jpeg
 
 USER app
 WORKDIR /app

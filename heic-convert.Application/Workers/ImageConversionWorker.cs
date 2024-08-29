@@ -99,7 +99,7 @@ namespace heic_convert.Application.Workers
 
                 var process = Process.Start(new ProcessStartInfo("magick")
                 {
-                    Arguments = $"\"{filePath}\" \"{outFile}\""
+                    Arguments = $"convert \"{filePath}\" \"{outFile}\""
                 });
 
                 process?.WaitForExit();
