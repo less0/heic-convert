@@ -26,6 +26,7 @@ Custom directories can be set in `appsettings.json`
 | `WatchDirectory` | The directory the application watches at. |
 | `OutDirectory` | The directory the merged PDFs are written to. |
 | `ErrorDirectory` | The directory erroneous PDFs are written to. |
+| `AddHealthcheckEndpoint` | A boolean value that states whether a healthcheck shall be available at `<host>:8080/health`. |
 
 ## Building with Docker
 
@@ -84,6 +85,7 @@ UID and GID of the user and group `app` in the image.
 | `DOTNET_WatchDirectory` | The directory the application watches at. Effectively defaults to `"/app/in"`. |
 | `DOTNET_OutDirectory` | The directory the merged PDFs are written to. Effectively defaults to `"/app/out"` |
 | `DOTNET_ErrorDirectory` | The directory, erroneous PDFs are written to. Effectively defaults to `"/app/error"` |
+| `DOTNET_AddHealthcheckEndpoint` | A boolean value that states whether a healthcheck shall be available at `<host>:8080/health`. |
 
 # Known limitations
 

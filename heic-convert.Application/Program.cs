@@ -1,7 +1,8 @@
 using heic_convert.Application;
 using heic_convert.Application.Workers;
+using Microsoft.AspNetCore.Builder;
 
-var builder = Host.CreateApplicationBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<IConfigDirectoryService, ConfigDirectoryService>();
 builder.Services.AddSingleton<IConfigValidator, ConfigValidator>();
 
@@ -12,6 +13,11 @@ builder.Services.AddHostedService(x => x.GetRequiredService<ImageConversionWorke
 builder.Services.AddHostedService<WatchDirectoryWorker>();
 
 var host = builder.Build();
+
+if(host.Configuration.GetValue<bool>("AddHealthcheckEndpoint"))
+{
+    host.MapGet("/health", () => "healthy");
+}
 
 host.Services
     .GetRequiredService<IConfigValidator>()
